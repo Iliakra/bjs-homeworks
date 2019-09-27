@@ -1,10 +1,10 @@
 //Задание 1
+'use strict'
 
 let a = 7;
 let b = 20;
 let c = -3;
 
-'use strict'
 function getSolutions(a, b, c) {
   let D = Math.pow(b, 2) - 4 * a * c;
   if (D < 0) {
@@ -16,7 +16,7 @@ function getSolutions(a, b, c) {
   } else if (D > 0) {
     let x1 = (-b + Math.sqrt(D)) / (2 * a);
     let x2 = (-b - Math.sqrt(D)) / (2 * a);
-    roots = [x1, x2];
+    let roots = [x1, x2];
     return {roots, D};
   }
 }
@@ -53,7 +53,7 @@ let data = {
 
 function getMassiveAverage(massive) {
   let sum = 0;
-  for (i=0; i<massive.length; i++) {
+  for (let i=0; i<massive.length; i++) {
   sum += massive[i];
   }
   return sum / massive.length;
@@ -66,15 +66,24 @@ function getAverageScore(data) {
 	for (let prop in data) {
     let massive = data[prop];
     averageScore = getMassiveAverage(massive);
-    console.log(`${prop}:${averageScore}`);
     averageMassive.push(averageScore);
     dataSum += averageScore;
 	}
-  
-  console.log(`average:${dataSum / averageMassive.length}`);
+  let average = dataSum / averageMassive.length;
+  return {
+  	algebra: averageMassive[0],
+  	geometry: averageMassive[1],
+	russian: averageMassive[2],
+	physics: averageMassive[3],
+	music: averageMassive[4],
+	english: averageMassive[5],
+	poetry: averageMassive[6],
+	chemistry: averageMassive[7],
+	average
+    };
 }
 
-getAverageScore(data);
+console.log(getAverageScore(data));
 
 //Задание 3.
 
