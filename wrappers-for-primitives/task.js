@@ -18,10 +18,13 @@ function calculateMortgage() {
 
 function calculateTotalMortgage(percent, contribution, amount, monthAmount) {
 	let i = 0;
-	if (typeof (arguments.i) = !"number") {
-		parseInt(arguments.i, 10);
-	} else if (typeof (parseInt(arguments.i,10)) = !"number") {
-		alert(`Параметр ${arguments.i} содержит неправильное значение ${arguments[i]}`);
+	if (typeof (arguments.i) != "number") {
+		percent = parseInt(percent, 10);
+		contribution = parseInt(contribution, 10);
+		amount = parseInt(amount, 10);
+		monthAmount = parseInt(monthAmount, 10);
+	} else if ( isNaN(percent) || isNaN(contribution) || isNaN(amount) || isNaN(monthAmount)) {
+		return `Параметр ${arguments.i} содержит неправильное значение ${arguments[i]}`
 	}
 
     let creditAmount = amount - contribution;
